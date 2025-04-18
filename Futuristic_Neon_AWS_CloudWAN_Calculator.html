@@ -114,12 +114,6 @@
       <label for="coreNetworks">Number of Core Networks</label>
       <input type="number" id="coreNetworks" value="1" min="0" />
 
-      <label for="attachments">Number of Attachments (VPC/TGW)</label>
-      <input type="number" id="attachments" value="1" min="0" />
-
-      <label for="dataTransfer">Monthly Data Transfer (GB)</label>
-      <input type="number" id="dataTransfer" value="0" min="0" />
-
       <label for="region">Select Region</label>
       <select id="region">
         <option value="1">US East (N. Virginia)</option>
@@ -142,13 +136,9 @@
 
       <canvas id="costChart" width="400" height="250" style="margin-top:30px;"></canvas>
     </main>
-    <aside>
-      <h3>📊 Cost Breakdown</h3>
-      <p>This chart shows the distribution of estimated cost across core networks, attachments, and data transfer.</p>
-    </aside>
   </div>
   <footer>
-    AWS CloudWAN Pricing Calculator – Powered by AWS style guide
+    AWS CloudWAN Pricing Calculator - Mock tool
   </footer>
 
   <script>
@@ -177,7 +167,6 @@
 
     function drawChart(coreCost, attachmentCost, dataCost) {
       const ctx = document.getElementById('costChart').getContext('2d');
-      if (window.costChart) window.costChart.destroy();
       window.costChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
